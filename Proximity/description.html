@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:sprite;/Areas/Epx/Themes/Windows/Content:0&amp;amp;hashKey=B5E5F4F4AE5278BDA2ADB3607072DA9C" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/dc96e5d0-205a-4f07-963c-0adecf31d9c1Combined.css,0:sprite,1:LinkList;/Areas/Epx/Themes/Windows/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=3985696AFC623BD5CCF8BE823D027701" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Proximity sample</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/9747a215-8d16-41fa-8910-f5195b563b01Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Proximity sample</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Runtime, Windows 8.1, Windows Phone 8.1
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Devices and sensors, universal app
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/2/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/windowsapps/Proximity-Sample-88129731">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div id="mainSection">
+<p>This sample demonstrates how to use the <a href="http://msdn.microsoft.com/library/windows/apps/br241203">
+<b>PeerFinder</b></a>, <a href="http://msdn.microsoft.com/library/windows/apps/br241212">
+<b>ProximityDevice</b></a>, and <a href="http://msdn.microsoft.com/library/windows/apps/dn279099">
+<b>PeerWatcher</b></a> classes to communicate with nearby devices. </p>
+<p class="note"><b>Note</b>&nbsp;&nbsp;This sample was created using one of the universal app templates available in Visual Studio. It shows how its solution is structured so it can run on both Windows&nbsp;8.1 and Windows Phone 8.1. For more info about how to build apps
+ that target Windows and Windows Phone with Visual Studio, see <a href="http://msdn.microsoft.com/library/windows/apps/dn609832">
+Build apps that target Windows and Windows Phone 8.1 by using Visual Studio</a>.</p>
+<p>You can use the <a href="http://msdn.microsoft.com/library/windows/apps/br212057">
+Windows.Networking.Proximity</a> API to exchange small messages during a tap gesture or set up a socket connection between peer apps. The
+<a href="http://msdn.microsoft.com/library/windows/apps/br241203"><b>PeerFinder</b></a> scenario (1) demonstrates how to use the Proximity API to create a socket connection between peer apps on two or more devices by using a tap gesture or by browsing using
+ a wireless radio. The <a href="http://msdn.microsoft.com/library/windows/apps/dn279099">
+<b>PeerWatcher</b></a> scenario (2) demonstrates how to dynamically find peer apps as they become visible. The
+<a href="http://msdn.microsoft.com/library/windows/apps/br241212"><b>ProximityDevice</b></a> scenarios (3 and 4) demonstrate how to send small message payloads between two devices during a tap gesture.</p>
+<p>This sample requires the use of multiple devices. It uses the <a href="http://msdn.microsoft.com/library/windows/apps/br241203">
+<b>PeerFinder</b></a> class to find peers and connect using <a href="http://msdn.microsoft.com/library/windows/apps/br226882">
+<b>StreamSocket</b></a>. To do this, click &quot;Advertise&quot; (on all devices in range). The
+<b>PeerFinder</b> will link the devices and provide a <b>StreamSocket</b> so the two devices can communicate. For scenarios that use a tap gesture, each device must have a proximity chip installed.
+</p>
+<div class="os_icon_block">
+<div class="os_icon_content_block">
+<p><b>Windows</b>For scenarios that use wireless browsing, each device must have a wireless chip that supports Wi-Fi Direct installed.
+</p>
+</div>
+</div>
+<div class="os_icon_block">
+<div class="os_icon_content_block">
+<p><b>Windows Phone</b>For scenarios that use wireless browsing, each device must have a wireless chip that supports Bluetooth installed.
+</p>
+</div>
+</div>
+<div class="os_icon_block">
+<div class="os_icon_content_block">
+<p><b>Windows</b>If you don't have hardware that supports proximity tapping such as Near-Field Communication (NFC) radio, you can use the proximity driver sample that is part of the Windows Driver Kit (WDK) samples. You can use the sample driver to simulate
+ a tap gesture over a network connection between two devices. For info on how to download the WDK, see
+<a href="http://go.microsoft.com/fwlink/?linkid=136508">Windows Driver Kit (WDK)</a>. After you have installed the WDK and samples, you can find the proximity driver sample in the src\nfp directory in the location where you installed the WDK samples. See the
+ NetNfpProvider.html file in the src\nfp\net directory for instructions on building and running the simulator. After you start the simulator, it runs in the background while your proximity app is running in the foreground. Your app must be in the foreground
+ for the tap simulation to work.</p>
+</div>
+</div>
+<p>To obtain an evaluation copy of Windows&nbsp;8.1, go to <a href="http://go.microsoft.com/fwlink/p/?linkid=301696">
+Windows&nbsp;8.1</a>.</p>
+<p>To obtain an evaluation copy of Microsoft Visual Studio&nbsp;2013 Update&nbsp;2, go to <a href="http://go.microsoft.com/fwlink/p/?linkid=301697">
+Microsoft Visual Studio&nbsp;2013</a>.</p>
+<p></p>
+<p class="note"><b>Note</b>&nbsp;&nbsp;For Windows&nbsp;8 app samples, download the <a href="http://go.microsoft.com/fwlink/p/?LinkId=301698">
+Windows&nbsp;8 app samples pack</a>. The samples in the Windows&nbsp;8 app samples pack will build and run only on Microsoft Visual Studio&nbsp;2012.</p>
+<p></p>
+<h2><a id="related_topics"></a>Related topics</h2>
+<dl><dt><a href="http://msdn.microsoft.com/library/windows/apps/hh465207">Quickstart: Connecting applications using tapping or browsing (JavaScript)</a>
+</dt><dt><a href="http://msdn.microsoft.com/library/windows/apps/hh465205">Quickstart: Connecting applications using tapping or browsing (C#)</a>
+</dt><dt><a href="http://msdn.microsoft.com/library/windows/apps/hh465223">Quickstart: Publishing and subscribing to messages using tapping (JavaScript)</a>
+</dt><dt><a href="http://msdn.microsoft.com/library/windows/apps/hh465213">Quickstart: Publishing and subscribing to messages using tapping (C#)</a>
+</dt><dt><a href="http://msdn.microsoft.com/library/windows/apps/hh465215">Guidelines and checklist for proximity</a>
+</dt><dt><a href="http://msdn.microsoft.com/library/windows/apps/br241250"><b>Windows.Networking.Proximity</b></a>
+</dt><dt><a href="http://msdn.microsoft.com/library/windows/apps/">StreamSocket</a> </dt></dl>
+<h2>Operating system requirements</h2>
+<table>
+<tbody>
+<tr>
+<th>Client</th>
+<td><dt>Windows&nbsp;8.1 </dt></td>
+</tr>
+<tr>
+<th>Server</th>
+<td><dt>Windows Server&nbsp;2012&nbsp;R2 </dt></td>
+</tr>
+<tr>
+<th>Phone</th>
+<td><dt>Windows Phone 8.1 </dt></td>
+</tr>
+</tbody>
+</table>
+<h2>Build the sample</h2>
+<p></p>
+<ol>
+<li>Start Visual Studio&nbsp;2013 Update&nbsp;2 and select <b>File</b> &gt; <b>Open</b> &gt;
+<b>Project/Solution</b>. </li><li>Go to the directory to which you unzipped the sample. Then go to the subdirectory named for the sample and double-click the Visual Studio&nbsp;2013 Update&nbsp;2 Solution (.sln) file.
+</li><li>Follow the steps for the version of the sample you want:
+<ul>
+<li>
+<p>To build the Windows version of the sample:</p>
+<ol>
+<li>Select <b>Proximity.Windows</b> in <b>Solution Explorer</b>. </li><li>Press Ctrl&#43;Shift&#43;B, or use <b>Build</b> &gt; <b>Build Solution</b>, or use <b>
+Build</b> &gt; <b>Build Proximity.Windows</b>. </li></ol>
+</li><li>
+<p>To build the Windows Phone version of the sample:</p>
+<ol>
+<li>Select <b>Proximity.WindowsPhone</b> in <b>Solution Explorer</b>. </li><li>Press Ctrl&#43;Shift&#43;B or use <b>Build</b> &gt; <b>Build Solution</b> or use <b>Build</b> &gt;
+<b>Build Proximity.WindowsPhone</b>. </li></ol>
+</li></ul>
+</li></ol>
+<p></p>
+<p class="note"><b>Note</b>&nbsp;&nbsp;The C# versions of the sample have a CS suffix. For example, the C#-Windows Phone version of the sample is
+<b>ProximityCS.WindowsPhone</b>.</p>
+<h2>Run the sample</h2>
+<p>The next steps depend on whether you just want to deploy the sample or you want to both deploy and run it.</p>
+<p><b>Deploying the sample</b></p>
+<ul>
+<li>
+<p>To deploy the built Windows version of the sample:</p>
+<ol>
+<li>Select <b>Proximity.Windows</b> in <b>Solution Explorer</b>. </li><li>Use <b>Build</b> &gt; <b>Deploy Solution</b> or <b>Build</b> &gt; <b>Deploy Proximity.Windows</b>.
+</li></ol>
+</li><li>
+<p>To deploy the built Windows Phone version of the sample:</p>
+<ol>
+<li>Select <b>Proximity.WindowsPhone</b> in <b>Solution Explorer</b>. </li><li>Use <b>Build</b> &gt; <b>Deploy Solution</b> or <b>Build</b> &gt; <b>Deploy Proximity.WindowsPhone</b>.
+</li></ol>
+</li></ul>
+<p><b>Deploying and running the sample</b></p>
+<ul>
+<li>
+<p>To deploy and run the Windows version of the sample:</p>
+<ol>
+<li>Right-click <b>Proximity.Windows</b> in <b>Solution Explorer</b> and select <b>
+Set as StartUp Project</b>. </li><li>To debug the sample and then run it, press F5 or use <b>Debug</b> &gt; <b>Start Debugging</b>. To run the sample without debugging, press Ctrl&#43;F5 or use
+<b>Debug</b> &gt; <b>Start Without Debugging</b>. </li></ol>
+</li><li>
+<p>To deploy and run the Windows Phone version of the sample:</p>
+<ol>
+<li>Right-click <b>Proximity.WindowsPhone</b> in <b>Solution Explorer</b> and select
+<b>Set as StartUp Project</b>. </li><li>To debug the sample and then run it, press F5 or use <b>Debug</b> &gt; <b>Start Debugging</b>. To run the sample without debugging, press Ctrl&#43;F5 or use
+<b>Debug</b> &gt; <b>Start Without Debugging</b>. </li></ol>
+</li></ul>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>
